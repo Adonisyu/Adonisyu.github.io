@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#container{
+			width: 400px;
+			height: 300px;
+			background: #ccc;
+			margin: 200px auto;
+			border: 1px solid #000;
+		}
+		#tab{
+			border-bottom: 1px solid #000;
+			height: 30px;
+		}
+		#tab li{
+			width: 120px;
+			height: 30px;
+			background: gray;
+			float: left;
+			margin-right: 2px;
+			text-align: center;
+			line-height: 30px;
+			cursor: pointer;
+		}
+		#tab .first{
+			background: #000;
+			color: #fff;
+		}
+		#content{
+			clear: both;
+		}
+		#content div{
+			width: 400px;
+			height: 270px;
+
+		}
+		#content .hide-div{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="tab">
+			<li class="first">html</li>
+			<li>css</li>
+			<li>javascript</li>
+		</ul>
+		<div id="content">
+			<div>111</div>
+			<div class="hide-div">222</div>
+			<div class="hide-div">333</div>
+		</div>
+	</div>
+	
+	<script>
+		var oTab = document.getElementById('tab');
+		var aLi = oTab.getElementsByTagName('li');
+		var oContent = document.getElementById('content');
+		var aDiv = oContent.getElementsByTagName('div');
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].aa = i;
+			aLi[i].onclick = function(){
+				for(var j=0; j<aLi.length; j++){
+					aLi[j].style.background = 'gray';
+					aLi[j].style.color = '#000';
+					aDiv[j].style.display = 'none';
+				}
+				this.style.background = '#000';
+				this.style.color = '#fff';
+
+				aDiv[this.aa].style.display = 'block';
+
+			};
+		}
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+</body>
+</html>

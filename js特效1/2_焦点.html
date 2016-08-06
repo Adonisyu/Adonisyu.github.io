@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="ip" value="请输入关键字">
+
+	<script>
+		var oIp = document.getElementById('ip');
+		oIp.style.color = '#ccc';
+		var str = oIp.value;
+		oIp.onfocus = function(){
+			if(this.value == '请输入关键字'){
+				this.value = '';
+			}
+			this.style.color = '#000';
+		};
+		oIp.onblur = function(){
+			if(this.value == ''){
+				this.value = str;
+				this.style.color = '#ccc';
+
+			}else{
+				this.style.color = '#000';
+			}
+		};
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
