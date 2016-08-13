@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#tab .first-level{
+			float: left;
+			width: 100px;
+			height: 20px;
+			border: 1px solid #000;
+			line-height: 20px;
+			text-align: center;
+			margin-right: 2px;
+			background: url(arrow.jpg) no-repeat right 3px;
+		} 
+		#tab .second-level{
+			display: none;
+			border: 1px solid #000;
+		}
+		#tab .second-level li:hover{
+			background: #ccc;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="tab">
+			<li class="first-level">item1
+				<ul class="second-level">
+					<li>001</li>
+					<li>002</li>
+					<li>003</li>
+				</ul>
+			</li>
+			<li class="first-level">item2
+				<ul class="second-level">
+					<li>001</li>
+					<li>002</li>
+					<li>003</li>
+				</ul>
+			</li>
+			<li class="first-level">item3
+				<ul class="second-level">
+					<li>001</li>
+					<li>002</li>
+					<li>003</li>
+				</ul>
+			</li>
+			<li class="first-level">item4
+				<ul class="second-level">
+					<li>001</li>
+					<li>002</li>
+					<li>003</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<script>
+		var oTab = document.getElementById('tab');
+		var aLi = oTab.getElementsByTagName('li');
+		for(var i=0; i<aLi.length; i++){
+			if(aLi[i].className == 'first-level'){
+				aLi[i].onmouseover = function(){
+					var oUl= this.getElementsByTagName('ul')[0];
+					oUl.style.display = 'block';
+					this.style.backgroundPosition = 'right -15px';
+				};
+				aLi[i].onmouseout = function(){
+					var oUl= this.getElementsByTagName('ul')[0];
+					oUl.style.display = 'none';
+					this.style.backgroundPosition = 'right 3px';
+				};
+			}
+		}
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 2000px;
+		}
+		#header{
+			width: 100%;
+			height: 100px;
+			background: #ccc;
+		}
+		#search{
+			width: 100%;
+			height: 50px;
+			background: #f00;
+		}
+		.fix{
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="header"></div>
+	<div id="search"></div>
+
+	<script>
+		var oSearch = document.getElementById('search');
+		var iSearchTop = oSearch.offsetTop; //搜索框距离顶部的高度
+		var bIsFixed = false;//标志位，标志是否固定
+		window.onscroll = function(){
+			var iScrollTop = document.documentElement.scrollTop || document.body.scrollTop;//获取滚动条距顶部的位置
+			console.log(iScrollTop);
+			if(iScrollTop >= iSearchTop && !bIsFixed){
+				// oSearch.style.position = 'fixed';
+				// oSearch.style.top = 0;
+				// oSearch.style.left = 0;
+				oSearch.className = 'fix';
+				bIsFixed = true;
+			}else if(iScrollTop < iSearchTop && bIsFixed){
+				// oSearch.style.position = 'static';
+				oSearch.className = '';
+				bIsFixed = false;
+			}
+
+		};
+
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
