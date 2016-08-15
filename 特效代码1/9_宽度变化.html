@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			width: 100px;
+			height: 50px;
+			background: #f00;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+
+	<script>
+		var oDiv1 = document.getElementById('div1');
+		var timer;
+		oDiv1.onmouseover = function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				if(oDiv1.offsetWidth >= 300){
+					clearInterval(timer);
+				}else{
+					oDiv1.style.width = oDiv1.offsetWidth + 10 + 'px';
+				}
+				
+			}, 30);
+		};
+		oDiv1.onmouseout = function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				if(oDiv1.offsetWidth <= 100){
+					clearInterval(timer);
+				}else{
+					oDiv1.style.width = oDiv1.offsetWidth - 10 + 'px';
+				}
+			}, 30);
+		};
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

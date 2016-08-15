@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#container{
+			width: 390px;
+			height: 200px;
+			border: 1px solid #000;
+			margin: 200px auto;
+			overflow: hidden;
+			position: relative;
+		}
+		#imgs{
+			width: 520px;
+			position: absolute;
+		}
+		#imgs li{
+			width: 120px;
+			height: 120px;
+			float: left;
+			background: #000;
+			color: #fff;
+			text-align: center;
+			line-height: 120px;
+			margin-right: 10px;
+		}
+		#arrows{
+			width: 120px;
+			position: absolute;
+			bottom: 30px;
+			left: 50%;
+			margin-left: -60px;
+		}
+		#prev, #next{
+			width: 50px;
+			height: 30px;
+			display: inline-block;
+			background: #ccc;
+			color: #fff;
+			text-align: center;
+			line-height: 30px;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="imgs">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<div id="arrows">
+			<span id="prev">向左</span>
+			<span id="next">向右</span>
+		</div>
+	</div>
+	<script>
+		var oImgs = document.getElementById('imgs');
+		var oPrev = document.getElementById('prev');
+		var oNext = document.getElementById('next');
+		var speed = 10;
+
+		oImgs.innerHTML += oImgs.innerHTML;
+		oImgs.style.width = 2 * oImgs.offsetWidth + 'px';
+
+		setInterval(function(){
+			oImgs.style.left = oImgs.offsetLeft - speed + 'px';
+			if(parseInt(oImgs.style.left) <= -oImgs.offsetWidth / 2){
+				oImgs.style.left = 0;
+			}
+			if(parseInt(oImgs.style.left) > 0){
+				oImgs.style.left = -oImgs.offsetWidth / 2 + 'px';
+			}
+		}, 50);
+		oNext.onmouseover = oPrev.onmouseover = function(){
+			if(this == oPrev){
+				speed = 10;
+			}else{
+				speed = -10;
+			}
+		};
+
+
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
