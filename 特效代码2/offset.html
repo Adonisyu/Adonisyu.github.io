@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#div1{
+			width: 400px;
+			height: 400px;
+			background: #f00;
+			padding-top: 100px;
+			padding-left: 100px;
+			margin-top: 100px;
+			position: absolute;
+		}
+		#div2{
+			width: 200px;
+			height: 200px;
+			background: #0f0;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+	<script>
+		var oDiv2 = document.getElementById('div2');
+		alert(oDiv2.offsetTop);
+		alert(oDiv2.offsetLeft);
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
